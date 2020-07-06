@@ -13,7 +13,7 @@
 
 color_name: It specify the name of the color for the text in the Document.
 hex_number: It specify the hex code of the color of the Text in the Document.
-rgb_number: It specify the rgb value of the Text in the Document
+rgb_number: It specifdawday the rgb value of the Text in the Document
              
             </div>
         </div>

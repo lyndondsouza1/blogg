@@ -12,9 +12,13 @@ class BloggController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($name,$age)
+    public function index()
     {
-       dd($name. " is " . $age. " years old . ");
+        $bloggs= blogg::all();
+
+       return view ('blogg.index')->with([
+           'bloggs' => $bloggs
+       ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class BloggController extends Controller
      */
     public function create()
     {
-        //
+        return view ('blogg.create');
     }
 
     /**
@@ -35,7 +39,15 @@ class BloggController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+    $request->validate([
+            'name' => 'required|min:3',
+            'description'=> 'required|min:5'
+        ]);
+    $blogg = new Blogg(['name'=>$request['name'],'description'=>$request['description'],]);
+    $blogg->save();
+    return $this->index();
+
     }
 
     /**

@@ -20,8 +20,9 @@ Route::get('/', function () {
 Route::get('/info', function () {
     return view('info');
 });
-Route::get('/test/{name}/{age}', 'BloggController@index');
+//Route::get('/test/{name}/{age}', 'BloggController@index');
 
+Route::resource('blogg','BloggController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
